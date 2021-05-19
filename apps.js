@@ -1,3 +1,4 @@
+const compression = require('compression');
 const cors = require('cors');
 const express = require('express');
 const morgan = require('morgan');
@@ -19,6 +20,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(compression());
 app.use('/api/v1/grocery', groceryRoute);
 
 module.exports = app;
